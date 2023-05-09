@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadores</title>
+</head>
+<body>
+<h1>Mi lista operadores</h1>
+
+<a href="/operador/add">añadir</a>
+<div th:if="${msgExito ne null}">
+  [[${msgExito}]]
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="operadores : ${operador}" th:object="${operadores}">
+    <td th:text="*{id}"></td>
+    <td th:text="*{nombre}"></td>
+    <td>
+      <a th:href="@{/{id}/operador/edit(id=*{id})}">Editar</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>[[${operador.id ne null ? 'Editar' : 'Nuevo'}]] operador</h1>
+<form th:action="@{''}" th:object="${operador}" method="post">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" placeholder="nombre" th:field="*{nombre}">
+    </div>
+
+    <button>Guardar</button>
+</form>
+
+</body>
+</html>

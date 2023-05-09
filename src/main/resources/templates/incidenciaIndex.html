@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Mi lista incidentes</h1>
+
+<a href="/incidente/add">añadir</a>
+<div th:if="${msgExito ne null}">
+    [[${msgExito}]]
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>descripcion</th>
+        <th>fecha</th>
+        <th>estado</th>
+        <th>operador</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="incidencias : ${incidencia}" th:object="${incidencias}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{descripcion}"></td>
+        <td th:text="*{#temporals.format(fecha, 'dd/MM/YY')}"></td>
+        <td th:text="*{estado}"></td>
+        <td th:text="*{operador}"></td>
+        <td>
+            <a th:href="@{/{id}/incidente/edit(id=*{id})}">Editar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

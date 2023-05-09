@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>[[${incidencia.id ne null ? 'Editar' : 'Nuevo'}]] incidente</h1>
+
+<form th:action="@{''}" th:object="${incidencia}" method="post">
+    <div>
+        <label for="descripcion">Descripcion</label>
+        <input id="descripcion" type="text" placeholder="Descripcion" th:field="*{descripcion}">
+    </div>
+    <div>
+        <label for="fecha">Fecha</label>
+        <input id="fecha" type="date" placeholder="fecha" th:field="*{fecha}">
+    </div>
+    <div>
+        <label for="estado">estado</label>
+        <input id="estado" type="text" placeholder="estado" th:field="*{estado}">
+    </div>
+    <div>
+        <label for="operador">operador</label>
+        <input id="operador" type="number" placeholder="operador" th:field="*{operador}">
+    </div>
+
+    <button>Guardar</button>
+</form>
+</body>
+</html>
